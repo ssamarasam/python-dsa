@@ -9,9 +9,9 @@ class Node:
 
 class LinkedList:
     def __init__(self, value):
-        newnode = Node(value)
-        self.head = newnode
-        self.tail = newnode
+        new_node = Node(value)
+        self.head = new_node
+        self.tail = new_node
         self.length = 1
 
     def print(self):
@@ -21,13 +21,13 @@ class LinkedList:
             temp = temp.next
 
     def append(self, value):
-        newnode = Node(value)
+        new_node = Node(value)
         if self.length == 0:
-            self.head = newnode
-            self.tail = newnode
+            self.head = new_node
+            self.tail = new_node
         else:
-            self.tail.next = newnode
-            self.tail = newnode
+            self.tail.next = new_node
+            self.tail = new_node
         self.length += 1
 
     def pop(self):
@@ -44,6 +44,29 @@ class LinkedList:
         if self.length == 0:
             self.head = None
             self.tail = None
+        return temp
+
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
+
+    def pop_first(self):
+        if self.length == 0:
+            return None
+
+        temp = self.head
+        self.head = temp.next
+        self.length -= 1
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+
         return temp
 
 
