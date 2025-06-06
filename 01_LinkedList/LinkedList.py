@@ -59,18 +59,17 @@ class LinkedList:
     def pop_first(self):
         if self.length == 0:
             return None
-
         temp = self.head
         self.head = temp.next
         self.length -= 1
         if self.length == 0:
             self.head = None
             self.tail = None
-
         return temp
 
+    # def get(self, index):
 
-# instance of linked-list
+        # instance of linked-list
 ll = LinkedList(4)
 # ll.print()
 
