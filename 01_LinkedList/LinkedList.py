@@ -76,7 +76,14 @@ class LinkedList:
         temp = self.head
         for a in range(index):
             temp = temp.next
-        return temp.value
+        return temp
+
+    def set(self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+        return True
+
 
         # instance of linked-list
 ll = LinkedList(4)
@@ -86,4 +93,6 @@ ll.append(5)
 ll.append(6)
 ll.print()
 getvalue = ll.get(1)
-print("value at index 1: ", getvalue)
+print("value at index 1: ", getvalue.value)
+ll.set(1, 10)
+ll.print()
