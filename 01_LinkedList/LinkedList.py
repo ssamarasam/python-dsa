@@ -68,7 +68,13 @@ class LinkedList:
             self.tail = None
         return temp
 
-    # def get(self, index):
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for a in range(index):
+            temp = temp.next
+        return temp.value
 
         # instance of linked-list
 ll = LinkedList(4)
@@ -77,7 +83,5 @@ ll = LinkedList(4)
 ll.append(5)
 ll.append(6)
 ll.print()
-
-print("calling pop")
-print("poped: ", ll.pop().value)
-# print("ll: ", ll.print())
+getvalue = ll.get(1)
+print("value at index 1: ", getvalue)
